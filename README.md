@@ -1,2 +1,2 @@
-# GuitarFX-Website
-Site Oficial do GuitarFX
+# Hard Rock Studio-Website
+Site Oficial
