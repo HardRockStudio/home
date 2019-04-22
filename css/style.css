@@ -46,7 +46,7 @@ input{
     width: 30%;
     height: 30px;
     /* Position */
-    margin: 10px;
+    margin-top: 10px;
     padding: 5px;
     /* Style */
     border: 2px solid rgb(80, 80, 80);
@@ -69,8 +69,6 @@ input:focus{
     width: 95%;
     height: 30px;
     /* Position */
-    margin: 10px;
-    padding: 5px;
     /* Style */
     border: 2px solid rgb(0, 0, 0);
     /* Font Style */
@@ -81,10 +79,10 @@ input:focus{
 
 button{
     /* Size */
-    width: auto;
-    height: 40px;
+    width: 95%;
+    height: 45px;
     /* Position */
-    margin: 10px;
+    margin-top: 10px;
     padding: 5px;
     /* Style */
     border: 2px solid rgb(80, 80, 80);
@@ -531,7 +529,7 @@ footer{
         height: auto;
         /* Position */
         margin-top: 50px;
-        margin-left: 10%;
+        margin-left: 5%;
         /* Flex */
         display: flex;
         justify-content: space-around;
@@ -552,7 +550,7 @@ footer{
         font-family: 'Teko', sans-serif;
         font-size: 30px;
         color: rgb(255, 255, 255);
-        margin: 0px;
+        margin: 15px;
     }
 
     a{
@@ -588,6 +586,7 @@ footer{
         /* Position */
         display: flex;
         flex-direction: column;
+        justify-content: center;
         /* Transition */
         transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
@@ -599,13 +598,13 @@ footer{
         /* Position */
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
     }
     
     li{
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
     }
     
     li a{
@@ -638,25 +637,13 @@ footer{
         height: auto;
         /* Flex */
         display: flex;
-        flex-direction: column;
-        justify-content: center; 
+        flex-direction: row;
+        flex-direction: center; 
         background-color: black;
         /* Remove selection */
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
-    }
-
-    .logo h1{
-        /* Position */
-        margin-top: 10px;
-        /* Transition */
-        transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -webkit-transition: all 0.3s ease-in-out;
-        /* Size */
-        font-size: 35px;
     }
     
     .logo-img{
@@ -677,6 +664,7 @@ footer{
         height: 35px;
         /* Flex */ 
         display: flex;
+        flex-direction: row;
         justify-content: center; 
         /* Color */
         background-color: white;
@@ -698,7 +686,7 @@ footer{
         color: rgb(80, 80, 80);
         /* Position */
         margin-top: 3px;
-        margin-right: 15%;
+        margin-left: 20%;
 
     }
 
@@ -710,7 +698,7 @@ footer{
     /* Register Area */
     .socialclub-register-area{
         /* Size */
-        width: 90%;
+        width: 95%;
         height: auto;
         /* Style */
         background-repeat: no-repeat;
@@ -741,15 +729,17 @@ footer{
         width: 100%;
         /* Position */
         display: flex;
+        flex-direction: column;
         justify-content: start;
         flex-wrap: wrap;
     }
 
     .gallery {
         /* Size */
-        width: 150px;
+        width: 95%;
         /* Position */
-        margin: 10px;
+        margin-top: 10px;
+        margin-left: 0px; 
         float: left;
         /* Remove selection */
         -webkit-user-select: none;
@@ -760,7 +750,7 @@ footer{
     /* Card */
     .card-bar{
         /* Size */
-        width: 100%;
+        width: 95%;
         /* Position */
         display: flex;
         justify-content: space-between;
