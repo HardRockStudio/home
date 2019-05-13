@@ -120,7 +120,8 @@ button:focus{
     width: 950px;
     height: auto;
     /* Position */
-    margin: 50px auto;
+    margin-top: 50px;
+    margin-left: 15%;
     /* Flex */
     display: flex;
     justify-content: space-around;
@@ -261,6 +262,17 @@ li a.active{
     /* Position */
     margin-top: 3px;
     margin-right: 15%;
+
+}
+
+.info a{
+    /* Font Style */
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+    color: rgb(80, 80, 80);
+    /* Position */
+    margin-top: 3px;
+    margin-right: 10%;
 
 }
 
@@ -455,19 +467,9 @@ article{
     border: 1px solid;
 }
 
-.ps2{
-    /* Style */
-    background: rgb(44, 21, 255);
-}
-
-.xbox{
-    /* Style */
-    background: rgb(1, 150, 9);
-}
-
-.pc{
-    /* Style */
-    background: rgb(79, 79, 80);
+.social-card img{
+    width: 100px;
+    height: 100px;
 }
 
 .desc{
@@ -478,6 +480,7 @@ article{
 .buy{
     /* Style */
     background: #ccc;
+    border: 0em;
 }
 
 .buy h4{
@@ -527,7 +530,8 @@ footer{
         width: 450px;
         height: auto;
         /* Position */
-        margin: 50px auto;
+        margin-top: 50px;
+        margin-left: 5%;
         /* Flex */
         display: flex;
         justify-content: space-around;
