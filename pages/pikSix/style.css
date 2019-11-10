@@ -1,6 +1,6 @@
 body{
     /* Style */
-    background-color: #260F2C;
+    background-color: #25022C;
 }
 
 .logo{
@@ -10,7 +10,7 @@ body{
     /* Flex */
     display: flex;
     justify-content: center; 
-    background-color: #260F2C;
+    background-color: #25022C;
     /* Remove selection */
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -25,7 +25,7 @@ li a{
     font-family: 'Teko', sans-serif;
     font-size: 30px;
     color: rgb(255, 255, 255);
-    border-bottom: 3px solid  #260F2C;
+    border-bottom: 3px solid #25022C;
     /* Remove selection */
     -webkit-user-select: none;
     -moz-user-select: none;
