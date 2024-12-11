@@ -1,1369 +1,279 @@
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/* CSS inspirado no design moderno da Apple */
 
-/* -------------- Generic ---------------- */
+/* Variáveis para temas consistentes */
+:root {
+  --background-color: #121212;
+  --text-color: #f5f5f5;
+  --accent-color: #00ff37;
+  --secondary-color: #e0e0e0;
+  --card-bg: #1d1d1f00;
+  --nav-bg: #161d1936;
+  --border-color: #00000000;
+}
+
+/* Reseta estilos padrão */
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+html, body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+.nav-bar {
+  position: fixed; /* Fixa a div em relação à janela do navegador */
+  display: flex;
+  justify-content: flex-start; /* Logo à esquerda e links à direita */
+  align-items: center;
+  background-color: var(--nav-bg); /* Cor de fundo da nav */
+  padding: 1rem 2rem;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(95, 197, 0, 0.5);
+  width: 100%;
+  backdrop-filter: blur(10px); /* Aplica o efeito de embaçamento no fundo */
+}
+
+
+.socialclub-register-area {
+  position: relative; /* Necessário para posicionar o ::before */
+  background-image: url('https://devsfullstack.com/wp-content/uploads/2024/07/O-que-e-codigo-de-Programacao-2-1024x576.png'); /* Caminho para a imagem */
+  background-size: cover; /* Faz a imagem cobrir toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  padding: 2rem; /* Adiciona espaçamento interno */
+  color: var(--text-color); /* Garante contraste com o texto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+  width: 100%;
+  height: 500px;
+  display: flex; /* Para centralizar o conteúdo */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Garante que o ::before não ultrapasse os limites */
+}
+
+.socialclub-register-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Camada preta com 50% de transparência */
+  z-index: 1; /* Fica abaixo do conteúdo mas acima da imagem de fundo */
+}
+
+.socialclub-register-area > div {
+  position: relative;
+  z-index: 2; /* Garante que o texto fique acima da camada preta */
+}
+
+.nav-bar img {
+  height: 50px; /* Ajuste o tamanho do banner */
+  width: 50px;
+  object-fit: contain;
+}
+
+
+.nav-bar ul {
+  list-style: none;
+  display: flex; /* Itens lado a lado */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* Espaço entre os itens */
   margin: 0;
   padding: 0;
 }
 
-i {
-  /* Remove selection */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+.nav-bar li {
+  display: inline-block; /* Garante alinhamento horizontal */
 }
 
-select {
-  /* Size */
-  width: auto;
-  height: 25px;
-  /* Position */
-  margin: 10px;
-  padding: 5px;
-  /* Style */
-  border: 2px solid rgb(80, 80, 80);
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(80, 80, 80);
-  /* Remove blue bord */
-  box-shadow: 0 0 0 0;
-  outline: 0;
-}
-
-select:focus {
-  /* Style */
-  border: 2px solid rgb(0, 0, 0);
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(0, 0, 0);
-}
-
-input {
-  /* Size */
-  width: 30%;
-  height: 30px;
-  /* Position */
-  margin-top: 10px;
-  padding: 5px;
-  /* Style */
-  border: 2px solid rgb(80, 80, 80);
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(80, 80, 80);
-  /* Remove blue bord */
-  box-shadow: 0 0 0 0;
-  outline: 0;
-  /* Transition */
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-input:focus {
-  /* Size */
-  width: 95%;
-  height: 30px;
-  /* Position */
-  /* Style */
-  border: 2px solid rgb(0, 0, 0);
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(0, 0, 0);
-}
-
-button {
-  /* Size */
-  width: 95%;
-  height: 45px;
-  /* Position */
-  margin-top: 10px;
-  padding: 5px;
-  /* Style */
-  border: 2px solid rgb(80, 80, 80);
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(80, 80, 80);
-  /* Remove blue bord */
-  box-shadow: 0 0 0 0;
-  outline: 0;
-}
-
-button:hover {
-  /* Style */
-  border: 2px solid rgb(0, 0, 0);
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(0, 0, 0);
-}
-
-button:focus {
-  /* Style */
-  border: 2px solid rgb(255, 255, 255);
-  background-color: black;
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(255, 255, 255);
-}
-
-/* body */
-.bone {
-  /* Size */
-  width: 950px;
-  height: auto;
-  /* Position */
-  margin: 50px auto;
-  /* Flex */
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-body {
-  /* Style */
-  background-color: black;
-  scroll-behavior: smooth;
-}
-
-/* -------------- Label ---------------- */
-a {
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 25px;
-  color: rgb(255, 255, 255);
-}
-
-h1 {
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 70px;
-  margin: 5px;
-  color: rgb(255, 255, 255);
-}
-
-h2 {
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 40px;
-  color: rgb(255, 255, 255);
-  margin: 20px;
-}
-
-h3 {
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 30px;
-  color: rgb(255, 255, 255);
-  margin: 10px;
-}
-
-h4 {
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(255, 255, 255);
-  margin: 20px;
-}
-
-/* -------------- Header ---------------- */
-header {
-  /* Size */
-  width: 100%;
-  height: 600px;
-  /* Flex */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Nav Bar */
-.nav-bar {
-  /* Position */
-  display: flex;
-  flex-direction: row;
-  /* Transition */
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-ul {
-  /* Position */
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-}
-
-li {
-  display: flex;
-  flex-direction: column;
-  margin-right: 45px;
-  justify-content: start;
-}
-
-li a {
-  /* Position */
-  display: inline;
+.nav-bar li a {
   text-decoration: none;
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 30px;
-  color: rgb(255, 255, 255);
-  border-bottom: 3px solid rgb(0, 0, 0);
-  /* Remove selection */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-li a:hover {
-  border-bottom: 3px solid rgb(255, 255, 255);
+.nav-bar li a:hover {
+  color: var(--accent-color);
 }
 
-li a.active {
-  border-bottom: 3px solid rgb(255, 255, 255);
-}
 
-/* Info */
-.info {
-  /* Size */
-  width: 100%;
-  height: 35px;
-  /* Flex */
+/* Header Section */
+header {
   display: flex;
-  justify-content: flex-end;
-  /* Color */
-  background-color: white;
-  /* Remove selection */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  /* Transition */
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-.info h3 {
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(80, 80, 80);
-  /* Position */
-  margin-top: 3px;
-  margin-right: 15%;
-}
-
-.info a {
-  /* Font Style */
-  font-family: "Teko", sans-serif;
-  font-size: 20px;
-  color: rgb(80, 80, 80);
-  /* Position */
-  margin-top: 3px;
-  margin-right: 10%;
-}
-
-.info-header {
-  position: fixed;
-  top: 0px;
-}
-
-/* Logo */
-.logo {
-  /* Size */
-  width: 100%;
-  height: 340px;
-  /* Flex */
-  display: flex;
-  justify-content: center;
-  background-color: black;
-  /* Remove selection */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-.logo h1 {
-  /* Position */
-  margin-top: 100px;
-  /* Transition */
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-.logo-img {
-  /* Size */
-  width: 150px;
-  height: 150px;
-  /* Transition */
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-/* Register Area */
-.socialclub-register-area {
-  /* Size */
-  width: 100%;
-  height: 500px;  /* Style */
-  background-color: black;
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-attachment: fixed;
-  /* Position */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Transition */
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-.socialclub-register-area img{
-  /* Size */
-  max-width: 400px;
-  max-height: 400px;
-  width: auto;
-  height: auto;
-  border-radius: 2%;
-  
-  /* Transition */
-  transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-
-.division {
-  /* Style */
-  background-color: rgba(0, 0, 0, 0.822);
-  /* Size */
-  width: 40%;
-  height: 100%;
-}
-
-.register {
-  /* Size */
-  width: 100%;
-  /* Position */
-  display: flex;
-  flex-direction: row;
-}
-
-.bloc {
-  /* Size */
-  width: 100%;
-  /* Position */
-  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
+  text-align: left;
+  background: linear-gradient(180deg, var(--card-bg) 0%, var(--background-color) 100%);
 }
 
-.textfield {
-  /* Size */
-  width: 85%;
-  height: 30px;
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
 }
 
-/* -------------- Article ---------------- */
-article {
-  /* Size */
-  width: 100%;
-  height: 600px;
-  /* Flex */
-  display: flex;
-  flex-direction: column;
+header p {
+  font-size: 1.25rem;
+  color: var(--secondary-color);
 }
 
-/* Article body */
+/* Article Section */
 .article-body {
-  /* Size */
-  width: 100%;
-  /* Position */
-  padding: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
 }
 
-/* Article Cont */
-.article-cont {
-  /* Size */
-  width: 100%;
-  /* Position */
-  display: flex;
-  padding: 15px;
-  flex-direction: column;
-  justify-content: start;
+.article-body h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.article-body h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.article-body p {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  line-height: 1.8;
 }
 
 /* Gallery */
 .gallery-bar {
-  /* Size */
-  width: 100%;
-  /* Position */
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .gallery {
-  /* Size */
-  width: 250px;
-  /* Position */
-  margin: 5px;
-  float: left;
-  /* Remove selection */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 300px; /* Largura fixa */
+  height: 300px; /* Altura fixa */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery img {
-  /* Size */
   width: 100%;
-  height: auto;
-  border-radius: 2%;
+  height: 75%; /* Ocupa 75% da altura do container */
+  object-fit: cover; /* Ajusta a imagem ao espaço */
+  transition: transform 0.5s ease;
 }
 
-.desc {
-  /* Position */
-  padding: 15px;
+.gallery:hover img {
+  transform: scale(1.1);
+}
+
+.gallery .desc {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 25%; /* Ocupa 25% da altura do container */
+  padding: 0.5rem;
   text-align: center;
 }
 
-/* Card */
+.gallery .desc a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.gallery .desc a:hover {
+  color: var(--accent-color);
+}
+
+.gallery:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Footer Section */
+.foot {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+.foot h2 {
+  font-size: 1rem;
+  color: var(--secondary-color);
+}
+
+/* Social Cards */
 .card-bar {
-  /* Size */
-  width: 100%;
-  /* Position */
   display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px; /* Tamanho fixo para uniformidade */
+  height: 400px; /* Altura consistente */
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.card {
-  /* Size */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card .social-card img {
   width: 100%;
-  /* Position */
+  height: 200px;
+  object-fit: cover;
 }
 
-.card img {
-  /* Size */
-  width: 150px;
-  height: 150px;
-  /* Style */
-  border-radius: 100%;
-}
-
-.card {
-  /* Position */
+.card .buy {
+  padding: 1rem;
   text-align: center;
 }
 
-.card div {
-  /* Style */
-  border: 1px solid;
+.card .buy h4 {
+  font-size: 1.25rem;
+  color: var(--accent-color);
 }
 
-.social-card img {
-  width: 100px;
-  height: 100px;
+#logo-banner {
+  width: 250px;
+  height: auto;
 }
-
-.desc {
-  /* Style */
-  background: rgb(66, 66, 66);
-}
-
-.buy {
-  /* Style */
-  background: #ccc;
-  border: 0em;
-  border-color: black;
-  select: none;
-}
-
-.buy h4 {
-  /* Style */
-  color: rgb(0, 0, 0);
-}
-
-.buy:hover {
-  /* Style */
-  background: rgb(255, 255, 255);
-}
-
-/*---------------Footer---------------*/
-.base {
-  /* Flex */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.foot {
-  /* Flex */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.link {
-  /* Style */
-  text-decoration: none;
-}
-
-footer {
-  /* Size */
-  width: 100%;
-  height: 600px;
-  /* Flex */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Responsividade IPHONE X */
-
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3) {
-  .bone {
-    /* Size */
-    width: 800px;
-    height: auto;
-    /* Position */
-    margin:  auto 12%;
-    /* Flex */
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-  }
-
-  header {
-    /* Size */
-    width: 100%;
-    height: auto;
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-  }
-
-  h3 {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    margin: 15px;
-  }
-
-  a {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-  }
-
-  /* Article body */
-  .article-body {
-    /* Size */
-    width: 100%;
-    /* Position */
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-  }
-
-  .article-cont {
-    /* Size */
-    width: 100%;
-    /* Position */
-    display: flex;
-    padding: 0px;
-    margin: 0px;
-    flex-direction: column;
-    justify-content: start;
-  }
-
-  .nav-bar {
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  ul {
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  li a {
-    /* Position */
-    display: inline;
-    text-decoration: none;
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    border-bottom: 3px solid rgb(0, 0, 0);
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  li a:hover {
-    border-bottom: 25px solid rgb(255, 255, 255);
-  }
-
-  li a.active {
-    border-bottom: 25px solid rgb(255, 255, 255);
-  }
-
-  /* Logo */
-  .logo {
-    /* Size */
-    width: 50%;
-    height: auto;
-    /* Flex */
-    display: flex;
-    flex-direction: row;
-    flex-direction: center;
-    background-color: black;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  .logo-img {
-    /* Size */
-    width: 100px;
-    height: 100px;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  /* Info */
-  .info {
-    /* Size */
-    width: 100%;
-    height: 75px;
-    /* Flex */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* Color */
-    background-color: white;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  .info h3 {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(80, 80, 80);
-    /* Position */
-    margin-top: 3px;
-    margin-left: 20%;
-  }
-
-  .info-header {
-    position: fixed;
-    top: 0px;
-  }
-
-  /* Register Area */
-  .socialclub-register-area {
-    /* Size */
-    width: 95%;
-    height: auto;
-    /* Style */
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-attachment: fixed;
-    /* Position */
-    display: flex;
-    justify-content: flex-end;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  .division {
-    /* Style */
-    background-color: rgba(0, 0, 0, 0.822);
-    /* Size */
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-  }
-
-  /* Gallery */
-  .gallery-bar {
-    /* Size */
-    width: 100%;
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    flex-wrap: wrap;
-  }
-
-  .gallery {
-    /* Size */
-    width: 95%;
-    /* Position */
-    margin-top: 10px;
-    margin-left: 0px;
-    float: left;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  /* Card */
-  .card-bar {
-    /* Size */
-    width: 95%;
-    /* Position */
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  .card {
-    /* Size */
-    width: 100%;
-    /* Position */
-    margin-top: 20px;
-  }
-
-  .card img {
-    /* Size */
-    width: 100px;
-    height: 100px;
-    /* Style */
-    border-radius: 100%;
-  }
-
-  .base {
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .foot {
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-}
-
-/* Responsividade IPHONE 6, 6S, 7 e 8 */
-
-@media 
-  (max-device-width: 218px)
-  and (max-device-height: 281px) {
-  .bone {
-    /* Size */
-    width: 800px;
-    height: auto;
-    /* Position */
-    margin:  auto 12%;
-    /* Flex */
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-  }
-
-  header {
-    /* Size */
-    width: 100%;
-    height: auto;
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-  }
-
-  h3 {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    margin: 15px;
-  }
-
-  a {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-  }
-
-  /* Article body */
-  .article-body {
-    /* Size */
-    width: 100%;
-    /* Position */
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-  }
-
-  .article-cont {
-    /* Size */
-    width: 100%;
-    /* Position */
-    display: flex;
-    padding: 0px;
-    margin: 0px;
-    flex-direction: column;
-    justify-content: start;
-  }
-
-  .nav-bar {
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  ul {
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  li a {
-    /* Position */
-    display: inline;
-    text-decoration: none;
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    border-bottom: 3px solid rgb(0, 0, 0);
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  li a:hover {
-    border-bottom: 25px solid rgb(255, 255, 255);
-  }
-
-  li a.active {
-    border-bottom: 25px solid rgb(255, 255, 255);
-  }
-
-  /* Logo */
-  .logo {
-    /* Size */
-    width: 50%;
-    height: auto;
-    /* Flex */
-    display: flex;
-    flex-direction: row;
-    flex-direction: center;
-    background-color: black;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  .logo-img {
-    /* Size */
-    width: 100px;
-    height: 100px;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  /* Info */
-  .info {
-    /* Size */
-    width: 100%;
-    height: 75px;
-    /* Flex */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* Color */
-    background-color: white;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  h1 {
-  /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 70px;
-    margin: 50px;
-    color: rgb(255, 255, 255);
-  }
-
-  i a{
-  /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 70px;
-    margin: 50px;
-    color: rgb(255, 255, 255);
-  }
-
-  .info h3 {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(80, 80, 80);
-    /* Position */
-    margin-top: 3px;
-    margin-left: 20%;
-  }
-
-  .info-header {
-    position: fixed;
-    top: 0px;
-  }
-
-  /* Register Area */
-  .socialclub-register-area {
-    /* Size */
-    width: 95%;
-    height: auto;
-    /* Style */
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-attachment: fixed;
-    /* Position */
-    display: flex;
-    justify-content: flex-end;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  .division {
-    /* Style */
-    background-color: rgba(0, 0, 0, 0.822);
-    /* Size */
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-  }
-
-  /* Gallery */
-  .gallery-bar {
-    /* Size */
-    width: 100%;
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    flex-wrap: wrap;
-  }
-
-  .gallery {
-    /* Size */
-    width: 95%;
-    /* Position */
-    margin-top: 10px;
-    margin-left: 0px;
-    float: left;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  /* Card */
-  .card-bar {
-    /* Size */
-    width: 95%;
-    /* Position */
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  .card {
-    /* Size */
-    width: 100%;
-    /* Position */
-    margin-top: 20px;
-  }
-
-  .card img {
-    /* Size */
-    width: 100px;
-    height: 100px;
-    /* Style */
-    border-radius: 100%;
-  }
-
-  .base {
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .foot {
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-}
-
-/* Responsividade IPHONE 6, 6S, 7 e 8 */
-
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .bone {
-    /* Size */
-    width: 800px;
-    height: auto;
-    /* Position */
-    margin:  auto 12%;
-    /* Flex */
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-  }
-
-  header {
-    /* Size */
-    width: 100%;
-    height: auto;
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-  }
-
-  h3 {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    margin: 15px;
-  }
-
-  a {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-  }
-
-  /* Article body */
-  .article-body {
-    /* Size */
-    width: 100%;
-    /* Position */
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-  }
-
-  .article-cont {
-    /* Size */
-    width: 100%;
-    /* Position */
-    display: flex;
-    padding: 0px;
-    margin: 0px;
-    flex-direction: column;
-    justify-content: start;
-  }
-
-  .nav-bar {
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  ul {
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  li a {
-    /* Position */
-    display: inline;
-    text-decoration: none;
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    border-bottom: 3px solid rgb(0, 0, 0);
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  li a:hover {
-    border-bottom: 25px solid rgb(255, 255, 255);
-  }
-
-  li a.active {
-    border-bottom: 25px solid rgb(255, 255, 255);
-  }
-
-  /* Logo */
-  .logo {
-    /* Size */
-    width: 50%;
-    height: auto;
-    /* Flex */
-    display: flex;
-    flex-direction: row;
-    flex-direction: center;
-    background-color: black;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  .logo-img {
-    /* Size */
-    width: 100px;
-    height: 100px;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  /* Info */
-  .info {
-    /* Size */
-    width: 100%;
-    height: 75px;
-    /* Flex */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* Color */
-    background-color: white;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  h1 {
-  /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 70px;
-    margin: 50px;
-    color: rgb(255, 255, 255);
-  }
-
-  i a{
-  /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 70px;
-    margin: 50px;
-    color: rgb(255, 255, 255);
-  }
-
-  .info h3 {
-    /* Font Style */
-    font-family: "Teko", sans-serif;
-    font-size: 50px;
-    color: rgb(80, 80, 80);
-    /* Position */
-    margin-top: 3px;
-    margin-left: 20%;
-  }
-
-  .info-header {
-    position: fixed;
-    top: 0px;
-  }
-
-  /* Register Area */
-  .socialclub-register-area {
-    /* Size */
-    width: 95%;
-    height: auto;
-    /* Style */
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-attachment: fixed;
-    /* Position */
-    display: flex;
-    justify-content: flex-end;
-    /* Transition */
-    transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-  }
-
-  .division {
-    /* Style */
-    background-color: rgba(0, 0, 0, 0.822);
-    /* Size */
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-  }
-
-  /* Gallery */
-  .gallery-bar {
-    /* Size */
-    width: 100%;
-    /* Position */
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    flex-wrap: wrap;
-  }
-
-  .gallery {
-    /* Size */
-    width: 95%;
-    /* Position */
-    margin-top: 10px;
-    margin-left: 0px;
-    float: left;
-    /* Remove selection */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-  }
-
-  /* Card */
-  .card-bar {
-    /* Size */
-    width: 95%;
-    /* Position */
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  .card {
-    /* Size */
-    width: 100%;
-    /* Position */
-    margin-top: 20px;
-  }
-
-  .card img {
-    /* Size */
-    width: 100px;
-    height: 100px;
-    /* Style */
-    border-radius: 100%;
-  }
-
-  .base {
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .foot {
-    /* Flex */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-}
-
