@@ -1,0 +1,24 @@
+[
+    {
+      "id": "produto1",
+      "titulo": "Simulador de Corrida",
+      "descricao": "Um simulador de corrida que combina realismo e adrenalina.",
+      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "imagens": [
+        "images/produto1/img1.jpg",
+        "images/produto1/img2.jpg",
+        "images/produto1/img3.jpg"
+      ]
+    },
+    {
+      "id": "produto2",
+      "titulo": "GuitarFX",
+      "descricao": "Transforme seu som com efeitos sonoros mágicos.",
+      "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "imagens": [
+        "images/produto2/img1.jpg",
+        "images/produto2/img2.jpg"
+      ]
+    }
+  ]
+  

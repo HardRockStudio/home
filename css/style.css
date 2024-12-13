@@ -1,6 +1,13 @@
 /* CSS inspirado no design moderno da Apple */
 
 /* Variáveis para temas consistentes */
+@font-face {
+  font-family: 'MinhaFonte'; /* Nome que você usará no CSS */
+  src: url('../fonts/29lt-bukra.ttf') format('truetype'); /* Formato TrueType */
+  font-weight: normal; /* Peso da fonte */
+  font-style: normal; /* Estilo da fonte */
+}
+
 :root {
   --background-color: #121212;
   --text-color: #f5f5f5;
@@ -16,7 +23,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "MinhaFonte", sans-serif;
 }
 
 html, body {
@@ -60,6 +67,7 @@ html, body {
   overflow: hidden; /* Garante que o ::before não ultrapasse os limites */
 }
 
+
 .socialclub-register-area::before {
   content: '';
   position: absolute;
@@ -69,6 +77,7 @@ html, body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Camada preta com 50% de transparência */
   z-index: 1; /* Fica abaixo do conteúdo mas acima da imagem de fundo */
+  backdrop-filter: blur(10px); /* Aplica o efeito de embaçamento no fundo */
 }
 
 .socialclub-register-area > div {
@@ -77,9 +86,10 @@ html, body {
 }
 
 .nav-bar img {
-  height: 50px; /* Ajuste o tamanho do banner */
-  width: 50px;
+  height: 30px; /* Ajuste o tamanho do banner */
+  width: auto;
   object-fit: contain;
+  margin-right: 30px;
 }
 
 
@@ -172,7 +182,7 @@ header p {
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   width: 300px; /* Largura fixa */
-  height: 300px; /* Altura fixa */
+  height: 374px; /* Altura fixa */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -186,16 +196,11 @@ header p {
   transition: transform 0.5s ease;
 }
 
-.gallery:hover img {
-  transform: scale(1.1);
-}
-
 .gallery .desc {
   position: absolute;
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
-  height: 25%; /* Ocupa 25% da altura do container */
   padding: 0.5rem;
   text-align: center;
 }
@@ -277,3 +282,113 @@ header p {
   width: 250px;
   height: auto;
 }
+
+.client-logos {
+  display: flex; /* Ativa o flexbox */
+  flex-wrap: wrap; /* Permite que as logos quebrem para a próxima linha */
+  justify-content: center; /* Centraliza as logos horizontalmente */
+  align-items: center; /* Alinha as logos verticalmente */
+  gap: 60px; /* Espaçamento entre as logos */
+  padding: 20px; /* Espaçamento interno para respirar */
+  background-color: #f9f9f900; /* Adiciona um fundo suave para destaque */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+.client-logo {
+  border-radius: 10px;
+  height: 50px; /* Altura uniforme para todas as logos */
+  object-fit: contain; /* Garante que a proporção das imagens seja mantida */
+  transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.client-logo:hover {
+  transform: scale(1.1); /* Leve aumento no tamanho ao passar o mouse */
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: rgb(0, 0, 0);
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-images {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-image {
+  max-width: 100%;
+  height: auto;
+  transition: opacity 0.3s;
+}
+
+.carousel-image.hidden {
+  display: none;
+}
+
+.carousel-prev, .carousel-next {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#article-head {
+  display: flex; /* Organiza a imagem e o texto lado a lado */
+  align-items: center; /* Alinha verticalmente no centro */
+  text-align: justify; /* Alinha o texto à esquerda */
+  margin-right: 10%;
+}
+
+#article-head img {
+  margin-right: 20px; /* Espaço entre a imagem e o texto */
+  max-width: 500px; /* Limita o tamanho da imagem, se necessário */
+}
+
+.title-inicio {
+  margin: 0; /* Remove margens extras, se houver */
+}
+
+.synopsis {
+  margin-top: 50px;
+}
+
+
